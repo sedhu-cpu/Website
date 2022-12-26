@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Intro</title>
+    <link rel="stylesheet" href="CSS/Intro.css">
+    <!-- <link rel="stylesheet" href="bootstrap\css\bootstrap-responsive.css"> -->
+    <!-- <link rel="stylesheet" href="bootstrap\css\bootstrap-responsive.min.css"> -->
+    <!-- <link rel="stylesheet" href="bootstrap\css\bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="bootstrap\css\bootstrap.min.css"> -->
+</head>
+<body>
+<div class="background1">
+      <img src="Pictures/caesars-wide-logops.png" class ="logo" alt="Caesars" align="right">
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+    <div class="form">
+        <form autocomplete="on">
+            <div class ="autocomplete" style="width: 40%">
+                <input type="text" id="myInput" name="location" placeholder="Enter your Location...." oninput="apiCall()">
+            </div>
+        </form>
+    </div>
+</div>
+
+<ul class="cards">
+    <li>
+        <a href="chickenroll.html" class="card">
+            <img src="Pictures/857372_large.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+                <div class="card__header">
+                    <div class="card__header-text">
+                        <h3 class="card__title">Chicken Tikka Roll</h3>
+                    </div>
+                </div>
+                <p class="card__description">Made using all purpose flour, stir-fried chicken, yoghurt and a variety of vegetables rolled into paranthas.</p>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="mushroomtart.html" class="card">
+            <img src="Pictures/MUSHROOM_TART-0010_637021646323996947.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+                <div class="card__header">
+                    <div class="card__header-text">
+                        <h3 class="card__title">Mushroom Tart</h3>
+                    </div>
+                </div>
+                <p class="card__description">Packed with chestnut mushrooms, on a puff pastry bed with shallots and cheese.</p>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="hotdogfatayer.html" class="card">
+            <img src="Pictures/HOTDOG_FATAYER-0002__637021645486910728.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+                <div class="card__header">
+                    <div class="card__header-text">
+                        <h3 class="card__title">Hotdog Fatayer</h3>
+                    </div>
+                </div>
+                <p class="card__description">Sausages wrapped within fresh dough</p>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="cheesecroisaants.html" class="card">
+            <img src="Pictures/Cheese_Croissants_(c_637238538346142941.jpg" class="card__image" alt="" />
+            <div class="card__overlay">
+                <div class="card__header">
+                    <div class="card__header-text">
+                        <h3 class="card__title">Cheese Croissants</h3>
+                    </div>
+                </div>
+                <p class="card__description">These treats come stuffed with cheese so to make a perfect complement to sweet brunch foods.</p>
+            </div>
+        </a>
+    </li>
+</ul>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="center_align">
+        <a href="Intro.html" class="underline">Home</a>
+        <a href="menu.html" class="underline">Menu</a>
+        <a href="#" class="underline">Clients</a>
+        <a href="#" class="underline">Contact</a>
+    </div>
+</div>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyA5pv4SiFfWw56iSLi0AgNvKlMqQE_eok8",
+      authDomain: "caesars-site.firebaseapp.com",
+      projectId: "caesars-site",
+      storageBucket: "caesars-site.appspot.com",
+      messagingSenderId: "24590143447",
+      appId: "1:24590143447:web:45efca9ca9605e4b878592",
+      measurementId: "G-5XLD8CP25Z"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+
+<script>
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+
+    function apiCall(){
+    var searchInput = document.getElementById("myInput");
+
+    // get movie
+    searchInput.onkeydown = function() {
+        var searchData = document.getElementById("myInput").value;
+
+        if (searchData.length >= 1 ) {
+            while (document.getElementsByClassName('autoComplete')[0]) {
+            document.getElementsByClassName('autoComplete')[0].remove();
+        }
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://localhost:7186/api/Location/GetallLocations', true);
+        request.onload = function () {
+            // Begin accessing JSON data here
+            var data = JSON.parse(this.response);
+
+            var wrapper = document.createElement('div');
+            wrapper.className = "autoComplete";
+            searchInput.appendChild(wrapper);
+            var results = data;
+            console.log(data);
+            if (request.status >= 200 && request.status < 400) {
+                var a, b, i, val = document.getElementById("myInput").value;
+                /*close any already open lists of autocompleted values*/
+                //closeAllLists();
+                //if (!val) { return false;}
+                currentFocus = -1;
+                /*create a DIV element that will contain the items (values):*/
+                a = document.createElement("DIV");
+                a.setAttribute("id", document.getElementById("myInput").id + "autocomplete-list");
+                a.setAttribute("class", "autocomplete-items");
+                /*append the DIV element as a child of the autocomplete container:*/
+                document.getElementById("myInput").parentNode.appendChild(a);
+                /*for each item in the array...*/
+                for (i = 0; i < data.length; i++) {
+                    /*check if the item starts with the same letters as the text field value:*/
+                    if (data[i].locationName.substr(0, data.length).toUpperCase() === val.toUpperCase()) {
+                        /*create a DIV element for each matching element:*/
+                        b = document.createElement("DIV");
+                        /*make the matching letters bold:*/
+                        b.innerHTML = "<strong>" + data[i].locationName.substr(0, data.length) + "</strong>";
+                        b.innerHTML += data[i].locationName.substr(data.length);
+                        /*insert a input field that will hold the current array item's value:*/
+                        b.innerHTML += "<input id ='auto-text' type='hidden' value='" + data[i].locationName + "'>";
+                        /*execute a function when someone clicks on the item value (DIV element):*/
+                        b.addEventListener("click", function(e) {
+                            /*insert the value for the autocomplete text field:*/
+                            document.getElementById("myInput").value = this.getElementsByTagName("input")[0].value;
+                            /*close the list of autocompleted values,
+                            (or any other open lists of autocompleted values:*/
+                            closeAllLists();
+                        });
+                        a.appendChild(b);
+                    }
+                }
+        // });
+            } else {
+                console.log('error');
+            }
+        //     .addEventListener("keydown", function(e) {
+        //     var x = document.getElementById(document.getElementById("myInput") + "autocomplete-list");
+        //     if (x) x = x.getElementsByTagName("div");
+        //     if (e.keyCode === 40) {
+        //         /*If the arrow DOWN key is pressed,
+        //         increase the currentFocus variable:*/
+        //         currentFocus++;
+        //         /*and make the current item more visible:*/
+        //         addActive(x);
+        //     } else if (e.keyCode === 38) { //up
+        //         /*If the arrow UP key is pressed,
+        //         decrease the currentFocus variable:*/
+        //         currentFocus--;
+        //         /*and make the current item more visible:*/
+        //         addActive(x);
+        //     } else if (e.keyCode === 13) {
+        //         /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        //         e.preventDefault();
+        //         console.log(x[currentFocus]);
+        //         if (currentFocus > -1) {
+        //             /*and simulate a click on the "active" item:*/
+        //             if (x) x[currentFocus].click();
+        //         }
+        //         e.preventDefault();
+        //         var val = document.getElementById('auto-text').value;
+        //         window.location.href = 'menu.html' + '#' + val;
+        //     }
+        // });
+
+             };
+            request.send();
+         }
+    }
+}
+    // function autocomplete(inp, arr) {
+    //     /*the autocomplete function takes two arguments,
+    //     the text field element and an array of possible autocompleted values:*/
+    //     var currentFocus;
+    //     /*execute a function when someone writes in the text field:*/
+    //     inp.addEventListener("input", function(e) {
+    //         var a, b, i, val = this.value;
+    //         /*close any already open lists of autocompleted values*/
+    //         closeAllLists();
+    //         if (!val) { return false;}
+    //         currentFocus = -1;
+    //         /*create a DIV element that will contain the items (values):*/
+    //         a = document.createElement("DIV");
+    //         a.setAttribute("id", this.id + "autocomplete-list");
+    //         a.setAttribute("class", "autocomplete-items");
+    //         /*append the DIV element as a child of the autocomplete container:*/
+    //         this.parentNode.appendChild(a);
+    //         /*for each item in the array...*/
+    //         for (i = 0; i < arr.length; i++) {
+    //             /*check if the item starts with the same letters as the text field value:*/
+    //             if (arr[i].substr(0, val.length).toUpperCase() === val.toUpperCase()) {
+    //                 /*create a DIV element for each matching element:*/
+    //                 b = document.createElement("DIV");
+    //                 /*make the matching letters bold:*/
+    //                 b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+    //                 b.innerHTML += arr[i].substr(val.length);
+    //                 /*insert a input field that will hold the current array item's value:*/
+    //                 b.innerHTML += "<input id ='auto-text' type='hidden' value='" + arr[i] + "'>";
+    //                 /*execute a function when someone clicks on the item value (DIV element):*/
+    //                 b.addEventListener("click", function(e) {
+    //                     /*insert the value for the autocomplete text field:*/
+    //                     inp.value = this.getElementsByTagName("input")[0].value;
+    //                     /*close the list of autocompleted values,
+    //                     (or any other open lists of autocompleted values:*/
+    //                     closeAllLists();
+    //                 });
+    //                 a.appendChild(b);
+    //             }
+    //         }
+    //     });
+
+        function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+        }
+
+        function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+                x[i].classList.remove("autocomplete-active");
+            }
+        }
+
+        function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+                if (elmnt !== x[i] && elmnt !== inp) {
+                    x[i].parentNode.removeChild(x[i]);
+                }
+            }
+        }
+         /*execute a function when someone clicks in the document:*/
+         document.addEventListener("click", function (e) {
+             closeAllLists(e.target);
+         });
+
+    // $('#autoCmpl1').on('text', function(e){
+    //     e.preventDefault();
+    //     const data = $(this).serializeArray();
+    //     console.log(data);
+  
+    //      //json data to send
+    //         const json = JSON.stringify(data);
+    //         console.log(json);
+
+    //         //ajax here
+    //         getLocations();
+    //     });
+    // function getLocations() {
+    //    /* debugger;*/
+    //     //console.log(cartItemList);
+
+    //         $.ajax({
+    //             url: "https://localhost:7186/api/Location/GetallLocations",
+    //             type: 'GET',
+    //             dataType: 'json',
+    //             contentType:
+    //                 "application/json;charset=utf-8",
+    //             success: function (result) {
+    //                 console.log(result);
+    //                 locationList.addAll(result);
+    //                 autocomplete(document.getElementById("myInput"), result);
+    //                 return locationList.addAll(result);
+    //                 productUpdateSuccess(product);
+    //             },
+    //             error: function (request, message, error) {
+    //                 handleException(request, message, error);
+    //             }
+    //         }); 
+            
+    // }
+
+    //var countries = getLocations();
+
+    /*An array containing all the country names in the world:*/
+    // var countries = ["Kuwait City","Dasmān","Jahra","Sharq","Dasma","Da'iya","Sawābir","Mirgāb","Jibla","Salhiya","Bneid il-Gār","Keifan","Mansūriya","Abdullah as-Salim suburb","Nuzha","Faiha","Shamiya","Rawda","Adiliya","Khaldiya","Qadsiya","Qurtuba","Surra","Yarmūk","Shuwaikh","Rai","Ghirnata","Sulaibikhat","Doha","Nahdha","Jabir al-Ahmad City","Qairawān","Hawally","Rumaithiya","Jabriya","Salmiya","Mishrif","Sha'ab","Bayān","Bi'di'","Nigra","Salwa","Maidan Hawalli","Mubarak aj-Jabir suburb","South Surra","Hittin","Mubarak al-Kabeer","Adān","Qurain","Qusūr","Sabah as-Salim suburb","Misīla","Abu 'Fteira","Sabhān","Fintās","Funaitīs","Ahmadi","Aqila","Zuhar","Miqwa'","Mahbula","Rigga","Hadiya","Abu Hulaifa","Sabahiya","Mangaf","Fahaheel","Wafra","Zoor","Khairan","Abdullah Port","Agricultural Wafra","Bneidar","Jilei'a","Jabir al-Ali Suburb","Fahd al-Ahmad Suburb","Shu'aiba","Sabah al-Ahmad City","Nuwaiseeb","Khairan City","Ali as-Salim suburb","Sabah al-Ahmad Nautical City"];
+
+    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+    
+
+</script>
+</body>
+</html>

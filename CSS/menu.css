@@ -1,0 +1,570 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+    .background1{
+        height: 356px;
+        width: 100%;
+        background-image: url("../Pictures/selection-of-chinese-food-that-may-cause-chinese-restaurant-syndrome.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center top;
+        background-size: cover;
+        opacity: 70%;
+        display: block;
+    }
+    body{
+            padding: 0;
+            margin: 0;
+    }
+    body {
+            opacity: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Cairo, cursive;
+    }
+
+    .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.85);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            opacity: 70%;
+    }
+
+    .center_align {
+            transform: translateY(100%);
+            text-transform: uppercase;
+            text-decoration: white;
+            letter-spacing: 0.1em;
+    }
+
+    .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: rgba(0, 0, 0, 0.8);
+            display: block;
+            opacity: 1;
+            transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+            color: darkgrey;
+    }
+
+    .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+    }
+    @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidebar a {font-size: 18px;}
+    }
+    a.underline{
+            position: relative;
+    }
+
+    a.underline:before{
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            right: auto;
+            background-color: black;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+    }
+    a.underline:hover:before{
+            visibility: visible;
+            width: 45%;
+    }
+    .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            opacity: 70%;
+    }
+
+    .openbtn:hover{
+            background-color: #444;
+    }
+    .h4{
+        font-size: 50px;
+        text-decoration: underline;
+        margin-left: 700px;
+        margin-top: 80px;
+        font-family: Dubai, cursive;
+        color: black;
+        font-weight: 400;
+    }
+    * {
+        box-sizing: content-box;
+        /* margin: -10px; */
+        }
+
+    body {
+        padding: 0px;
+        margin: 0;
+        /* margin: 29px; */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+    }
+    .card-container {
+        width: 1400px;
+        display: flex;
+        margin-left: 50px;
+    }
+    .card {
+        min-width: 340px;
+        height: 300px;
+        border-radius: 16px;
+        background-color: white;
+        box-shadow: 1px 8px 15px #A5A5A5;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        transition: 0.2s;
+    }
+    .date {
+        color: #8a8a8a;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1rem 0 1rem;
+    }
+
+    .tags div {
+        font-size: 9px;
+        font-weight: 700;
+        padding: 4px 10px;
+        border: 3px solid #28242f;
+        border-radius: 2rem;
+    }
+
+    .card .category-title {
+        font-size: 14px;
+        color: black;
+        margin-bottom: 1rem;
+    }
+
+    .card .article-title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .card .article-header {
+        margin-bottom: auto;
+    }
+
+    .card .author {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        font-weight: bold;
+    }
+
+    .author .info .caption {
+        color: #8a8a8a;
+    }
+
+    .card:not(:first-child) {
+        margin-left: -130px;
+    }
+
+    .card:hover {
+        transform: translateY(-1rem);
+    }
+
+    .card:hover~.card{
+        transform: translateX(130px);
+    }
+
+    .h3{
+        font-size: 45px;
+        text-decoration: underline;
+        margin-left: 60px;
+        margin-top: -50px;
+        font-family: Cairo, cursive;
+        color: black;
+        font-weight: 400;
+    }
+    .button{
+        background-color: black;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 120px 5px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+    .Pizza{
+        background-color: white;
+        transition-duration: 0.4s;
+        color: black;
+        border: 3px solid black;
+        border-radius: 25px;
+        padding: 16px 32px;
+    }
+
+    .Pizza:focus{
+        background-color: grey;
+        color: white;
+    }
+    .Fatayer{
+        background-color: white;
+        transition-duration: 0.4s;
+        color: black;
+        border: 3px solid black;
+        border-radius: 25px;
+        padding: 16px 32px;
+    }
+
+    .Fatayer:focus{
+        background-color: grey;
+        color: white;
+    }
+    .Croissant{
+        background-color: white;
+        color: black;
+        border: 3px solid black;
+    }
+
+    .Croissant:focus{
+        background-color: grey;
+        color: white;
+    }
+    .Puffs{
+        background-color: white;
+        color: black;
+        border: 3px solid black;
+    }
+
+    .Puffs:focus{
+        background-color: grey;
+        color: white;
+    }
+    .Snacks{
+        background-color: white;
+        color: black;
+        border: 3px solid black;
+    }
+
+    .Snacks:focus{
+        background-color: grey;
+        color: white;
+    }
+    .Sweets{
+        background-color: white;
+        color: black;
+        border: 3px solid black;
+    }
+
+    .Sweets:focus{
+        background-color: grey;
+        color: white;
+    }
+    .center {
+        display: flex;
+        margin-right: 100px;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    .column{
+       float: left;
+       width: 25%;
+       padding: 22px;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    span {cursor:pointer; }
+    .number{
+        margin:2px;
+    }
+    .minus, .plus{
+        width:20px;
+        height:20px;
+        background:#f2f2f2;
+        border-radius:4px;
+        padding:8px 5px 8px 5px;
+        border:1px solid #ddd;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+    input {
+        height: 34px;
+        width: 100px;
+        text-align: center;
+        font-size: 26px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .modal,
+    .modal2 {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 90px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 120%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    #area {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1em;
+    }
+
+    .cell {
+        background: #fafafa;
+        height: 50px;
+        padding: 1em;
+    }
+
+    .modal-content,
+    .modal-content2 {
+        position: relative;
+        background: grey;
+        margin: auto;
+        padding: 31px;
+        border: 1px solid #888;
+        width: 62%;
+        height: 50%;
+        overflow-y: auto;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+        border-radius: 16px;
+    }
+
+    @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+    @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+    .close,
+    .close2 {
+        color: white;
+        float: right;
+        font-size: 28px;
+        margin-top: -30px;
+        margin-right: 40px;
+        font-weight: bold;
+    }
+
+    .close,.close2:hover,
+    .close,.close2:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .addtocart{
+        width: 53%;
+        background-color: grey;
+        border: 2px solid;
+        border-radius: 9px;
+        color: white;
+        padding: 2px 20px;
+        margin-left: 7px;
+        margin-bottom: 5px;
+        font-size: 17px;
+        box-shadow: 0 7px black;
+    }
+
+    .addtocart:hover {background-color: dimgrey}
+
+    .addtocart:active{
+        background-color: white;
+        color: black;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .addtocart:after{
+        width:70%;
+        background-color: white;
+        box-shadow: 0 7px black;
+    }
+    .sidecart {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 40px;
+        opacity: 100%;
+    }
+
+    .cartItem {
+        overflow-y: auto;
+        height: 586px;
+    }
+
+    .center_align {
+        transform: translateY(100%);
+        text-transform: uppercase;
+        text-decoration: white;
+        letter-spacing: 0.1em;
+    }
+
+    .sidecart a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        position: fixed;
+        font-size: 25px;
+        color: rgba(0, 0, 0, 0.8);
+        display: block;
+        opacity: 1;
+        transition: 0.3s;
+    }
+
+    .sidecart a:hover {
+        color: darkgrey;
+        border-radius: 150px;
+    }
+
+    .sidecart .closebtn2 {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    @media screen and (max-height: 450px) {
+        .sidecart {padding-top: 15px;}
+        .sidecart a {font-size: 18px;}
+    }
+
+    .openbtn2 {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        margin-left: 1450px;
+        margin-top: 10px;
+        padding: 10px 15px;
+        border: none;
+        opacity: 70%;
+    }
+
+    .openbtn2:hover{
+        background-color: #444;
+    }
+
+    .OrderNow,
+    .clrall{
+        width:70%;
+        background-color: grey;
+        border: 2px solid;
+        border-radius: 10px ;
+        color: white;
+        margin-left: 50px;
+        margin-bottom: 14px;
+        font-size: 17px;
+        box-shadow: 0 7px black;
+    }
+    .OrderNow:hover,
+    .clrall:hover
+    {background-color: dimgrey}
+
+    .OrderNow:active,
+    .clrall:active{
+        background-color: white;
+        color: black;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .OrderNow:after,
+    .clrall:after{
+        width:70%;
+        background-color: white;
+        box-shadow: 0 7px black;
+    }
+
+    .h5{
+        font-size: 30px;
+        text-decoration: underline;
+        margin-left: 94px;
+        margin-top: -45px;
+        font-family: Cairo, cursive;
+        color: grey;
+        font-weight: 400;
+    }
+    table,th,td {
+        border: 1px solid black;
+    }
+    #block_container
+    {
+        /* align-content: flex-start; */text-align: start;
+        /* vertical-align: top; */
+        /* vertical-align: text-top; *//* margin: 0 auto; */}
+
+    #bloc2
+    {
+        border-radius: 20px;
+        width: 70px;
+        height: 70px;
+        display: inline;
+        float: right;
+        margin-top: -84px;
+        margin-right: 60px;
+    }
+
+    #bloc1 {
+        width: auto;
+        padding: 17px;
+        height: 40px;
+        display: inline-block;
+        vertical-align: top; /* here */
+    }
+
+    #align1{
+        padding: 0px 75px;
+        margin-top: -9px;
+    }

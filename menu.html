@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu</title>
+    <link rel="stylesheet" href="CSS/menu.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body>
+<div class="background1">
+    <img src="Pictures/caesars-wide-logops.png" alt="Caesars" align="right" style="padding: 1px; margin-right: 3px" width="315" height="75">
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+    <p class="h4 text-white">Menu</p>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="center_align">
+        <a href="Intro.html" class="underline">Home</a>
+        <a href="#" class="underline">Services</a>
+        <a href="#" class="underline">Clients</a>
+        <a href="#" class="underline">Contact</a>
+    </div>
+</div>
+<div id="main2">
+    <button class="openbtn2" onclick="openNav2()">
+
+        <i class='fa fa-shopping-cart'></i>
+    </button>
+</div>
+<div id="sidecart" class="sidecart">
+    <a href="javascript:void(0)" class="closebtn2" onclick="closeNav2()">&times;</a>
+    <p class="h5 text-white">Your Cart</p>
+    <div class="cartItem" id="myList"></div>
+    <button class="OrderNow" onclick="onOrderNowClick()">Order Now</button>
+    <button class="clrall" id="clrall" onclick="clearall()">Clear all</button>
+</div>
+<p class="h3 text-white">Most Popular</p>
+<div class="card-container">
+    <div class="card">
+        <header class="article-header">
+            <a href="pizza.html"></a>
+            <h2 class="article-title">
+                <a href="pizza.html">Mini Pizza</a>
+            </h2>
+            <div>
+                <div class="category-title">
+                    Mini Pizza available as of
+                    <span class="date">Jan 19, 2020</span>
+                </div>
+            </div>
+        </header>
+        <img src="Pictures/image.jpeg" width="200" height="100">
+        <div class="author">
+            <div class="profile"></div>
+            <div class="info">
+                <div class="caption">Savoury</div>
+                <div class="name">KD 0.250/piece</div>
+            </div>
+        </div>
+        <div class="tags">
+            <div>Non-veg</div>
+        </div>
+    </div>
+    <!-- repeat the card here. -->
+    <div class="card">
+        <header class="article-header">
+            <h2 class="article-title">
+                Halloumi Fatayer
+            </h2>
+            <div>
+                <div class="category-title">
+                    Halloumi Fatayer available as of
+                    <span class="date">Jan 19, 2020</span>
+                </div>
+            </div>
+        </header>
+        <img src="Pictures/mg_0033.jpg" width="200" height="100">
+        <div class="author">
+            <div class="profile"></div>
+            <div class="info">
+                <div class="caption">Savoury</div>
+                <div class="name">KD 0.200/piece</div>
+            </div>
+        </div>
+        <div class="tags">
+            <div>Fast Food</div>
+            <div>Veg</div>
+        </div>
+    </div>
+    <div class="card">
+        <header class="article-header">
+            <h2 class="article-title">
+                Chicken Puffs
+            </h2>
+            <div>
+                <div class="category-title">
+                    Chicken Puffs available as of
+                    <span class="date">Jan 19, 2020</span>
+                </div>
+            </div>
+        </header>
+        <img src="Pictures/Easy-Chicken-Puffs.jpg" width="200" height="100">
+        <div class="author">
+            <div class="profile"></div>
+            <div class="info">
+                <div class="caption">Savoury</div>
+                <div class="name">KD 0.200/piece</div>
+            </div>
+        </div>
+        <div class="tags">
+            <div>Baked</div>
+            <div>Non-veg</div>
+        </div>
+    </div>
+    <div class="card">
+        <header class="article-header">
+            <h2 class="article-title">
+                Chocolate Cake
+            </h2>
+            <div>
+                <div class="category-title">
+                    Chocolate Cake available as of
+                    <span class="date">Jan 19, 2020</span>
+                </div>
+            </div>
+        </header>
+        <img src="Pictures/lr-0953.jpg" width="200" height="100">
+        <div class="author">
+            <div class="profile"></div>
+            <div class="info">
+                <div class="caption">Dessert</div>
+                <div class="name">KD 1.200</div>
+            </div>
+        </div>
+        <div class="tags">
+            <div>Egg</div>
+            <div>Dessert</div>
+        </div>
+    </div>
+    <div class="card">
+        <header class="article-header">
+            <h2 class="article-title">
+                Brownie
+            </h2>
+            <div>
+                <div class="category-title">
+                    Brownie available as of
+                    <span class="date">Jan 19, 2020</span>
+                </div>
+            </div>
+            <img src="Pictures/istockphoto-168731372-612x612.jpg" width="200" height="100">
+        </header>
+        <div class="author">
+            <div class="profile"></div>
+            <div class="info">
+                <div class="caption">Dessert</div>
+                <div class="name">KD 0.500/piece</div>
+            </div>
+        </div>
+        <div class="tags">
+            <div>Eggless</div>
+            <div>Dessert</div>
+        </div>
+    </div>
+</div>
+<div class="center">
+    <button class="Pizza" id="myBtn">Pizza</button>
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="" id=""></div>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" id="item_row">
+                                <div id="item_column">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <button class="Fatayer" id="myBtn2">Fatayer</button>
+    <div id="Modal2" class="modal2">
+        <!-- Modal content -->
+        <div class="modal-content2">
+            <div class="modal-header">
+                <span class="close2">&times;</span>
+            </div>
+            <div class="modal-body2">
+                <div class ="row" id="item_row2">
+                    <div id="item_column2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <button class="button Croissant">Croissant</button>
+        <button class="button Puffs">Puffs</button>
+        <button class="button Snacks">Snacks</button>
+        <button class="button Sweets">Sweets</button>
+    </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    
+    let city = window.location.hash.substring(1);
+    console.log(city)
+    
+    
+   // let cartItems;
+    
+    class CartItem {
+
+        constructor(itemName,itemPrice,itemQty,itemImage){
+            this.itemImage = itemImage;
+            this.itemName = itemName;
+            this.itemPrice = itemPrice;
+            this.itemQty = itemQty;
+        }
+        getItemImage(){
+            return this.itemImage;
+        }
+        setItemImage(itemImage){
+            this.itemImage = itemImage;
+        }
+
+        getItemName() {
+            return this.itemName;
+        }
+
+        setItemName(itemName) {
+            this.itemName = itemName;
+        }
+
+        getItemPrice() {
+            return this.itemPrice;
+        }
+
+        setItemPrice(itemPrice) {
+            this.itemPrice = itemPrice;
+        }
+
+        getItemQty() {
+            return this.itemQty;
+        }
+
+        setItemQty(itemQty) {
+            this.itemQty = itemQty
+        }
+
+    }
+
+    let modal = document.getElementById("myModal");
+    let modal2 = document.getElementById("Modal2");
+
+    // Get the button that opens the modal
+    let btn = document.getElementById("myBtn");
+    let btn2 = document.getElementById("myBtn2");
+    
+    let cartItems = [];
+    let cartItemList = [];
+    let total;
+
+    let itemList = [];
+    let itemList2 = [];
+    //let itemList3 = [];
+
+    itemList.push(new CartItem('Chicken Pizza', 4.5 , 1 , "Pictures/507-5077919_bbq-chicken-pizza-png-transparent-png.png"));
+    itemList.push(new CartItem('Cheese Pizza',4.0, 1 , "Pictures/1-15904_cheese-pizza-png-vector-transparent-stock-pizza-street.png"));
+    itemList.push(new CartItem('Hot dog Pizza', 2.5, 1, "Pictures/480-4802731_pizza-dog-png-transparent-png.png"));
+    itemList.push(new CartItem('Zatar Pizza', 1.0, 1, "Pictures/480-4802731_pizza-dog-png-transparent-png.png"));
+
+    itemList2.push(new CartItem('C.P Fatayer',0.200,1,"Pictures/cheese-fatayer-recipe.jpg"));
+    itemList2.push(new CartItem('Cheese Roll',0.125,1,"Pictures/cheese-fatayer-recipe.jpg"));
+    itemList2.push(new CartItem('Halloumi Fatayer',0.200,1,"Pictures/cheese-fatayer-recipe.jpg"));
+    itemList2.push(new CartItem('Hotdog Fatayer',0.200,1,"Pictures/cheese-fatayer-recipe.jpg"));
+
+
+
+    let itemRow = document.getElementById("item_row");
+    let itemColumn = document.getElementById("item_column");
+    let itemRow2 = document.getElementById("item_row2");
+    let itemColumn2 = document.getElementById("item_column2");
+
+    itemList.forEach((item)=>{
+
+        var item1 = "'"+ item.itemName.toString() +"'";
+        var itemImg = "'"+ item.itemImage.toString() +"'";
+        //var cartItem = itemList[itemList.indexOf(item)];
+        let itemData = document.createElement("div");
+        itemData.className = "column"
+        itemData.innerHTML =
+            '<img src="'+item.itemImage+'" width="200" height="150" style="border-radius: 10px; background: dimgray "> \n' +
+            ' <h4>\n' +
+            '   <p>'+ item.itemName+ '</p>\n' +
+            '   <p>KD ' + item.itemPrice+ '</p>\n' +
+            ' </h4>\n' +
+            ' <div class="number">\n' +
+            '   <span class="minus" onclick="decreaseCount(event,this)">-</span>\n' +
+            '   <input type="text" value="1" id="quant'+itemList.indexOf(item)+'" />\n' +
+            '   <span class="plus" onclick="increaseCount(event,this)">+</span>\n' +
+            ' </div>\n' +
+            ' <button class="addtocart" onclick="addfunc('+item1+','+item.itemPrice+','+itemList.indexOf(item)+','+itemImg+')">Add to Cart</button>\n';
+        itemColumn.appendChild(itemData);
+    });
+    itemRow.append(itemColumn);
+
+
+    itemList2.forEach((item)=>{
+
+        var item1 = "'"+ item.itemName.toString() +"'";
+        var itemImg = "'"+ item.itemImage.toString() +"'";
+        //var cartItem = itemList[itemList.indexOf(item)];
+        let itemData = document.createElement("div");
+        itemData.className = "column"
+        itemData.innerHTML =
+            '<img src="'+item.itemImage+'" width="200" height="150" style="border-radius: 10px; background: dimgray"> \n' +
+            ' <h4>\n' +
+            '   <p>'+ item.itemName+ '</p>\n' +
+            '   <p>KD ' + item.itemPrice+ '</p>\n' +
+            ' </h4>\n' +
+            ' <div class="number">\n' +
+            '   <span class="minus" onclick="decreaseCount(event,this)">-</span>\n' +
+            '   <input type="text" value="1" id="quant2'+itemList2.indexOf(item)+'" />\n' +
+            '   <span class="plus" onclick="increaseCount(event,this)">+</span>\n' +
+            ' </div>\n' +
+            ' <button class="addtocart" onclick="addfunc2('+item1+','+item.itemPrice+','+itemList2.indexOf(item)+','+itemImg+')">Add to Cart</button>\n';
+        itemColumn2.appendChild(itemData);
+    });
+    itemRow2.append(itemColumn2);
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close2")[0];
+
+    
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    btn2.onclick = function() {
+        modal2.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    span2.onclick = function() {
+        modal2.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+    window.onclick = function(event) {
+        if (event.target === modal2) {
+            modal2.style.display = "none";
+        }
+    }
+    function increaseCount(a, b) {
+        var input = b.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        value = isNaN(value)? 0 : value;
+        value ++;
+        input.value = value;
+    }
+    function decreaseCount(a, b) {
+        var input = b.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 1) {
+            value = isNaN(value)? 0 : value;
+            value --;
+            input.value = value;
+        }
+    }
+
+    function addfunc(ItemName,price,index,itemImage){
+        /*console.log(cartItems.length)*/
+        var quantity = document.getElementById("quant"+ index).value;
+        let itemData = new CartItem(ItemName,price,quantity,itemImage);
+        cartItems = [];
+        cartItems.push(itemData);
+        cartItemList.push(itemData);
+        let dataList = document.getElementById("myList");
+        cartItems.forEach((item)=>{
+            let li = document.createElement("div");
+            li.innerHTML = '<div id="block_container">' +
+                '    <div id="bloc1"> <p id="align1">' + item.itemName +'</p> </div> <br>'  +
+                '    <div id="bloc1" style="margin-left: 100px;margin-top: -60px"> Qty:  ' + quantity +'</div><br>' +
+                '    <div id="bloc2" style="width: 70px; height: 60px"><img src="'+item.itemImage+'" style="width: 70px; height: 60px"></div>\n' +
+                '    <div id="bloc1" style="margin-left: 60px; margin-top: -59px"> Total Price: KD ' + quantity * price +'</div>' +
+                '</div>'
+            dataList.append(li)
+        })
+    }
+
+    function addfunc2(ItemName,price,index,itemImage){
+        console.log(cartItems.length)
+        var quantity = document.getElementById("quant2"+ index).value;
+        let itemData = new CartItem(ItemName,price,quantity,itemImage);
+        cartItems = [];
+        cartItems.push(itemData);
+        cartItemList.push(itemData);
+        let dataList = document.getElementById("myList");
+        cartItems.forEach((item)=>{
+            let li = document.createElement("div");
+            li.innerHTML = '<div id="block_container">' +
+                '    <div id="bloc1" style="margin-left: -4px"> <p id="align1">' + item.itemName +'</p> </div> <br>'  +
+                '    <div id="bloc1" style="margin-left: 100px;margin-top: -60px"> Qty:  ' + quantity +'</div><br>' +
+                '    <div id="bloc2" style="width: 70px; height: 60px"><img src="'+item.itemImage+'" style="width: 70px; height: 60px"></div>\n' +
+                '    <div id="bloc1" style="margin-left: 53px; margin-top: -59px"> Total Price: KD ' + quantity * price +'</div>' +
+                '</div>'
+            dataList.append(li)
+        })
+    }
+   /* console.log(cartItems.length);*/
+    
+    function onOrderNowClick() {
+       /* debugger;*/
+        console.log(cartItemList);
+        for (k = 0;k <= cartItemList.length-1;k++)
+        {
+            // fetch({
+            //     url: "https://localhost:7186/api/Orders/SaveOrder",
+            //     type: 'POST',
+            //     mode: 'cors',
+            //     contentType: 'application/json',
+            //     data: JSON.stringify([{
+            //         itemName: cartItems[0].itemName,
+            //         itemPrice: cartItems[0].itemPrice,
+            //         itemQty: cartItems[0].itemQty
+            //     }]),
+            //     success: function (response) {
+            //         console.log(response);
+            //     }
+            // });
+
+            $.ajax({
+                url: "https://localhost:7186/api/Orders/SaveOrder",
+                type: 'POST',
+                contentType:
+                    "application/json;charset=utf-8",
+                data: JSON.stringify([{
+                    ItemName: cartItemList[k].itemName,
+                    ItemPrice: cartItemList[k].itemPrice,
+                    Qty: cartItemList[k].itemQty,
+                    location: city
+                }]),
+                success: function (result) {
+                    console.log(result);
+                    //productUpdateSuccess(product);
+                },
+                error: function (request, message, error) {r
+                    //handleException(request, message, error);
+                }
+            }); 
+        }
+    }
+
+    /* var len = addfunc(cartItems).length;
+    console.log(len);*/
+
+    function clearall(){
+        cartItemList.length = 0;
+        console.log(cartItemList);
+        document.getElementById('myList').innerHTML = "";
+    }
+
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+
+    function openNav2() {
+        document.getElementById("sidecart").style.width = "350px";
+        document.getElementById("main2").style.marginRight = "350px";
+    }
+
+    function closeNav2() {
+        document.getElementById("sidecart").style.width = "0";
+        document.getElementById("main2").style.marginRight= "0";
+    }
+    
+    function addorder(){
+        Order.newObject();
+        Order.ItemName = $("#itemname").val();
+        Order.ItemPrice = $("#itemPrice").val();
+        Order.Qty = $("#Qty").val();
+    }
+</script>
+</body>
+</html>
