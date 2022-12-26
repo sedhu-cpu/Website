@@ -1,6 +1,6 @@
     .background1{
         height: 405px;
-        max-width: 100%;
+        max-width: 100% !important;
         background-image: url("../Pictures/image.jpeg");
         background-repeat: no-repeat;
         background-attachment: fixed;
