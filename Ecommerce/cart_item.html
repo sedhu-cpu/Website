@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="CSS/delta.css">
+<!--    <script type="text/javascript" src="delta.js">-->
+    </script>
+</head>
+<body>
+<header>
+    <h1>Mentee List</h1>
+</header>
+<nav>
+    <ul>
+        <li>List of Mentees</li>
+        <li onclick="newMentee();">Add a mentee</li>
+        <li>Remove a mentee</li>
+        <li>Make an edit
+            <ul>
+                <li>Add Details</li>
+                <li>Remove Details</li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div id="mentees">
+</div>
+<center>
+    <div>
+        <div id="new-mentee-form">
+            Name:<br><br><input type="text" name="name" id="name"><br><br>
+            Rating:<br><br><input type="text" id="rating" value=""><br><br>
+            Comments:<br><br><textarea name="name" rows="8" cols="28" id="comments" maxlength="30"></textarea><br><br>
+            <input type="submit" name="submit" value="Submit" id="submit" onclick="addMentee();">
+        </div>
+    </div>
+</center>
+</body>
+</html>

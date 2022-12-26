@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chickenroll</title>
+    <link rel="stylesheet" href="CSS/chickenroll.css">
+</head>
+<body>
+<img src="Pictures/caesars-wide-logops.png" alt="Caesars" align="right" style="padding: 5px; margin-top: -4px" width="331px" height="90px" >
+<div id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="center_align">
+        <a href="Intro.html" class="underline">Home</a>
+        <a href="#" class="underline">Services</a>
+        <a href="#" class="underline">Clients</a>
+        <a href="#" class="underline">Contact</a>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <div id="test">
+            <img src="Pictures/857372_large.jpg" alt="food" align="left" style="padding: 10px;margin-left: 255px;margin-top: 149px;width: 426px;border: 3px solid mistyrose;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+        </div>
+    </div>
+    <div class="column" style="margin-top: -180px; margin-left: 700px; font-family: Dubai; font-size: 15px">
+        <div id="box">
+            <h2>Chicken Tikka Roll</h2>
+                <p>Here lies description for said Item</p>
+            <h3>Available at:</h3>
+            <div class="dropdown">
+                <button class="dropbtn">Locations</button>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a>Salmiya</a></li>
+                            <li><a>Jahra</a></li>
+                            <li><a>Jabriya</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<svg class="arrows">
+    <path class="a1" d="M0 0 L30 32 L60 0"></path>
+    <path class="a2" d="M0 20 L30 52 L60 20"></path>
+    <path class="a3" d="M0 40 L30 72 L60 40"></path>
+</svg>
+
+<div class="row" style="margin-left: 60px; margin-top:100px">
+    <div class="column">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="Pictures/MUSHROOM_TART-0010_637021646323996947.jpg" alt="Avatar" style="width:240px;height:200px;border-radius: 15px">
+                </div>
+                <div class="flip-card-back">
+                    <h1><a href="mushroomtart.html">Mushroom Tart</a></h1>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="Pictures/Cheese_Croissants_(c_637238538346142941.jpg" alt="Avatar" style="width:240px;height:200px;border-radius: 15px">
+                </div>
+                <div class="flip-card-back">
+                    <h1><a href="cheesecroisaants.html">Cheese Croissant</a></h1>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="Pictures/HOTDOG_FATAYER-0002__637021645486910728.jpg" alt="Avatar" style="width:240px;height:200px;border-radius: 15px">
+                </div>
+                <div class="flip-card-back">
+                    <h1><a href="hotdogfatayer.html">Hotdog Fatayer</a></h1>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="Pictures/image.jpeg" alt="Avatar" style="width:240px;height:200px;border-radius: 15px">
+                </div>
+                <div class="flip-card-back">
+                    <h1><a href="pizza.html">Pizza</a></h1>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            document.getElementById('test').className = 'slideDown';
+        }, 3000);
+    }, false);
+</script>
+</body>
+</html>
