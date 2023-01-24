@@ -12,15 +12,20 @@
 </head>
 <body>
 <div class="background1">
-      <img src="Pictures/caesars-wide-logops.png" class ="logo" alt="Caesars" align="right">
+    <img src="Pictures/caesars-wide-logops.png" class ="logo" alt="Caesars" align="right">
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰</button>
     </div>
-        <form autocomplete="on">
-            <div class ="autocomplete" style="width: 40%">
-                <input type="text" id="myInput" name="location" placeholder="Enter your Location...." oninput="apiCall()">
+    <input type="text" class="form-control" id="searchMovie" value="" oninput"apiCall()">
+    <form autocomplete="off">
+        <form autocomplete="off">
+            <div class="autocomplete" style="width:300px;">
+              
             </div>
-        </form>
+            <!-- <div class ="autocomplete" style="width: 40%; color: #000;"> -->
+                <!-- <input type="text" id="myInput" name="location" placeholder="Enter your Location...."  oninput="apiCall()"> -->
+            <!-- </div> -->
+    </form>  
 </div>
 
 <ul class="cards">
@@ -123,15 +128,16 @@
         document.getElementById("main").style.marginLeft= "0";
     }
 
-    function apiCall(){
-    var searchInput = document.getElementById("myInput");
+
+    function apiCall() {
+ var searchInput = document.getElementById("searchMovie");
 
     // get movie
     searchInput.onkeydown = function() {
-        var searchData = document.getElementById("myInput").value;
+    var searchData = document.getElementById("searchMovie").value;
 
-        if (searchData.length >= 1 ) {
-            while (document.getElementsByClassName('autoComplete')[0]) {
+    if (searchData.length >= 3 ) {
+       while (document.getElementsByClassName('autoComplete')[0]) {
             document.getElementsByClassName('autoComplete')[0].remove();
         }
 
@@ -143,123 +149,107 @@
 
             var wrapper = document.createElement('div');
             wrapper.className = "autoComplete";
-            searchInput.appendChild(wrapper);
+            app.appendChild(wrapper);
             var results = data;
-            console.log(data);
             if (request.status >= 200 && request.status < 400) {
-                var a, b, i, val = document.getElementById("myInput").value;
-                /*close any already open lists of autocompleted values*/
-                //closeAllLists();
-                //if (!val) { return false;}
-                currentFocus = -1;
-                /*create a DIV element that will contain the items (values):*/
-                a = document.createElement("DIV");
-                a.setAttribute("id", document.getElementById("myInput").id + "autocomplete-list");
-                a.setAttribute("class", "autocomplete-items");
-                /*append the DIV element as a child of the autocomplete container:*/
-                document.getElementById("myInput").parentNode.appendChild(a);
-                /*for each item in the array...*/
-                for (i = 0; i < data.length; i++) {
-                    /*check if the item starts with the same letters as the text field value:*/
-                    if (data[i].locationName.substr(0, data.length).toUpperCase() === val.toUpperCase()) {
-                        /*create a DIV element for each matching element:*/
-                        b = document.createElement("DIV");
-                        /*make the matching letters bold:*/
-                        b.innerHTML = "<strong>" + data[i].locationName.substr(0, data.length) + "</strong>";
-                        b.innerHTML += data[i].locationName.substr(data.length);
-                        /*insert a input field that will hold the current array item's value:*/
-                        b.innerHTML += "<input id ='auto-text' type='hidden' value='" + data[i].locationName + "'>";
-                        /*execute a function when someone clicks on the item value (DIV element):*/
-                        b.addEventListener("click", function(e) {
-                            /*insert the value for the autocomplete text field:*/
-                            document.getElementById("myInput").value = this.getElementsByTagName("input")[0].value;
-                            /*close the list of autocompleted values,
-                            (or any other open lists of autocompleted values:*/
-                            closeAllLists();
-                        });
-                        a.appendChild(b);
-                    }
-                }
-        // });
+                console.log(data);
+                Object.keys(data.Search).map(function(key, index) {
+                    console.log(data.Search[index].Title);
+
+                    const searchResultsContainer = document.createElement('div');
+                    searchResultsContainer.setAttribute('class', 'row');
+
+                    const h1 = document.createElement('h1');
+                    h1.textContent = data.Search[index].Title;
+                    wrapper.appendChild(searchResultsContainer);
+                    searchResultsContainer.appendChild(h1);
+                    console.log(searchResultsContainer);
+                 });
             } else {
                 console.log('error');
             }
-        //     .addEventListener("keydown", function(e) {
-        //     var x = document.getElementById(document.getElementById("myInput") + "autocomplete-list");
-        //     if (x) x = x.getElementsByTagName("div");
-        //     if (e.keyCode === 40) {
-        //         /*If the arrow DOWN key is pressed,
-        //         increase the currentFocus variable:*/
-        //         currentFocus++;
-        //         /*and make the current item more visible:*/
-        //         addActive(x);
-        //     } else if (e.keyCode === 38) { //up
-        //         /*If the arrow UP key is pressed,
-        //         decrease the currentFocus variable:*/
-        //         currentFocus--;
-        //         /*and make the current item more visible:*/
-        //         addActive(x);
-        //     } else if (e.keyCode === 13) {
-        //         /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        //         e.preventDefault();
-        //         console.log(x[currentFocus]);
-        //         if (currentFocus > -1) {
-        //             /*and simulate a click on the "active" item:*/
-        //             if (x) x[currentFocus].click();
-        //         }
-        //         e.preventDefault();
-        //         var val = document.getElementById('auto-text').value;
-        //         window.location.href = 'menu.html' + '#' + val;
-        //     }
-        // });
-
-             };
-            request.send();
-         }
+        };
+        request.send();
+    }
     }
 }
-    // function autocomplete(inp, arr) {
-    //     /*the autocomplete function takes two arguments,
-    //     the text field element and an array of possible autocompleted values:*/
-    //     var currentFocus;
-    //     /*execute a function when someone writes in the text field:*/
-    //     inp.addEventListener("input", function(e) {
-    //         var a, b, i, val = this.value;
-    //         /*close any already open lists of autocompleted values*/
-    //         closeAllLists();
-    //         if (!val) { return false;}
-    //         currentFocus = -1;
-    //         /*create a DIV element that will contain the items (values):*/
-    //         a = document.createElement("DIV");
-    //         a.setAttribute("id", this.id + "autocomplete-list");
-    //         a.setAttribute("class", "autocomplete-items");
-    //         /*append the DIV element as a child of the autocomplete container:*/
-    //         this.parentNode.appendChild(a);
-    //         /*for each item in the array...*/
-    //         for (i = 0; i < arr.length; i++) {
-    //             /*check if the item starts with the same letters as the text field value:*/
-    //             if (arr[i].substr(0, val.length).toUpperCase() === val.toUpperCase()) {
-    //                 /*create a DIV element for each matching element:*/
-    //                 b = document.createElement("DIV");
-    //                 /*make the matching letters bold:*/
-    //                 b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-    //                 b.innerHTML += arr[i].substr(val.length);
-    //                 /*insert a input field that will hold the current array item's value:*/
-    //                 b.innerHTML += "<input id ='auto-text' type='hidden' value='" + arr[i] + "'>";
-    //                 /*execute a function when someone clicks on the item value (DIV element):*/
-    //                 b.addEventListener("click", function(e) {
-    //                     /*insert the value for the autocomplete text field:*/
-    //                     inp.value = this.getElementsByTagName("input")[0].value;
-    //                     /*close the list of autocompleted values,
-    //                     (or any other open lists of autocompleted values:*/
-    //                     closeAllLists();
-    //                 });
-    //                 a.appendChild(b);
-    //             }
-    //         }
-    //     });
 
-        function addActive(x) {
+//     function apiCall(){
+//     var searchInput = document.getElementById("myInput");
+
+
+//     searchInput.addEventListener('input', function(){alert("blah");}, true);
+
+//     // get movie
+//     // searchInput.onkeypress = function() {
+//     //     var searchData = document.getElementById("myInput").value;
+
+//     //     if (searchData.length > 0) {
+//     //         while (document.getElementsByClassName('autoComplete')[0]) {
+//     //         document.getElementsByClassName('autoComplete')[0].remove();
+//     //     }
+
+//     //     var request = new XMLHttpRequest();
+//     //     request.open('GET', 'https://localhost:7186/api/Location/GetallLocations', true);
+//     //     request.onload = function () {
+//     //         // Begin accessing JSON data here
+//     //         var data = JSON.parse(this.response);
+
+//     //         var wrapper = document.createElement('div');
+//     //         wrapper.className = "autoComplete";
+//     //         searchInput.appendChild(wrapper);
+//     //         var results = data;
+//     //         console.log(data);
+//     //         // 
+//     //         if (request.status >= 200 && request.status < 400) {
+//     //             var a, b, i, val = document.getElementById("myInput").value;
+//     //             /*close any already open lists of autocompleted values*/
+//     //             //closeAllLists();
+//     //             //if (!val) { return false;}
+//     //              currentFocus = -1;
+//     //             /*create a DIV element that will contain the items (values):*/
+//     //             a = document.createElement("DIV");
+//     //             a.setAttribute("id", document.getElementById("myInput").id + "autocomplete-list");
+//     //             a.setAttribute("class", "autocomplete-items");
+//     //             /*append the DIV element as a child of the autocomplete container:*/
+//     //             document.getElementById("myInput").parentNode.appendChild(a);
+//     //             /*for each item in the array...*/
+//     //             for (i = 0; i < data.length; i++) {
+//     //                 /*check if the item starts with the same letters as the text field value:*/
+//     //                 // if (data[i].locationName.substr(0, data.length).toUpperCase() === val.toUpperCase()) {
+//     //                     if(data[i].locationName.includes(val)) {
+
+//     //                     // alert("test");
+//     //                     /*create a DIV element for each matching element:*/
+//     //                     b = document.createElement("DIV");
+//     //                     /*make the matching letters bold:*/
+//     //                     b.innerHTML = "<strong>" + data[i].locationName.substr(0, data.length) + "</strong>";
+//     //                     b.innerHTML += data[i].locationName.substr(data.length);
+//     //                     /*insert a input field that will hold the current array item's value:*/
+//     //                     b.innerHTML += "<input id ='auto-text' type='hidden' value='" + data[i].locationName + "'>";
+//     //                     /*execute a function when someone clicks on the item value (DIV element):*/
+//     //                     b.addEventListener("click", function(e) {
+//     //                         /*insert the value for the autocomplete text field:*/
+//     //                         document.getElementById("myInput").value = this.getElementsByTagName("input")[0].value;
+//     //                         /*close the list of autocompleted values,
+//     //                         (or any other open lists of autocompleted values:*/
+//     //                         closeAllLists();
+//     //                     });
+//     //                     a.appendChild(b);
+//     //                 }
+//     //             }
+//     //         } else {
+//     //             console.log('error');
+//     //         }
+//     //          };
+//     //         request.send();
+//     //      }
+//     // }
+// }
+
+// https://localhost:7186/api/Location/GetallLocations
+
+function addActive(x) {
             /*a function to classify an item as "active":*/
             if (!x) return false;
             /*start by removing the "active" class on all items:*/
@@ -291,50 +281,6 @@
          document.addEventListener("click", function (e) {
              closeAllLists(e.target);
          });
-
-    // $('#autoCmpl1').on('text', function(e){
-    //     e.preventDefault();
-    //     const data = $(this).serializeArray();
-    //     console.log(data);
-  
-    //      //json data to send
-    //         const json = JSON.stringify(data);
-    //         console.log(json);
-
-    //         //ajax here
-    //         getLocations();
-    //     });
-    // function getLocations() {
-    //    /* debugger;*/
-    //     //console.log(cartItemList);
-
-    //         $.ajax({
-    //             url: "https://localhost:7186/api/Location/GetallLocations",
-    //             type: 'GET',
-    //             dataType: 'json',
-    //             contentType:
-    //                 "application/json;charset=utf-8",
-    //             success: function (result) {
-    //                 console.log(result);
-    //                 locationList.addAll(result);
-    //                 autocomplete(document.getElementById("myInput"), result);
-    //                 return locationList.addAll(result);
-    //                 productUpdateSuccess(product);
-    //             },
-    //             error: function (request, message, error) {
-    //                 handleException(request, message, error);
-    //             }
-    //         }); 
-            
-    // }
-
-    //var countries = getLocations();
-
-    /*An array containing all the country names in the world:*/
-    // var countries = ["Kuwait City","Dasmān","Jahra","Sharq","Dasma","Da'iya","Sawābir","Mirgāb","Jibla","Salhiya","Bneid il-Gār","Keifan","Mansūriya","Abdullah as-Salim suburb","Nuzha","Faiha","Shamiya","Rawda","Adiliya","Khaldiya","Qadsiya","Qurtuba","Surra","Yarmūk","Shuwaikh","Rai","Ghirnata","Sulaibikhat","Doha","Nahdha","Jabir al-Ahmad City","Qairawān","Hawally","Rumaithiya","Jabriya","Salmiya","Mishrif","Sha'ab","Bayān","Bi'di'","Nigra","Salwa","Maidan Hawalli","Mubarak aj-Jabir suburb","South Surra","Hittin","Mubarak al-Kabeer","Adān","Qurain","Qusūr","Sabah as-Salim suburb","Misīla","Abu 'Fteira","Sabhān","Fintās","Funaitīs","Ahmadi","Aqila","Zuhar","Miqwa'","Mahbula","Rigga","Hadiya","Abu Hulaifa","Sabahiya","Mangaf","Fahaheel","Wafra","Zoor","Khairan","Abdullah Port","Agricultural Wafra","Bneidar","Jilei'a","Jabir al-Ali Suburb","Fahd al-Ahmad Suburb","Shu'aiba","Sabah al-Ahmad City","Nuwaiseeb","Khairan City","Ali as-Salim suburb","Sabah al-Ahmad Nautical City"];
-
-    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-    
 
 </script>
 </body>
