@@ -78,3 +78,14 @@ a.underline:hover:before{
 .removepadding{
     padding: 0 !important;
 }
+
+.card{
+    margin-top: 195px !important; 
+    margin-left: -281px !important;
+}
+
+.tales {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
